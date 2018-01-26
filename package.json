@@ -1,0 +1,26 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "this is the chatapp stuff",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiija/chatApp.git"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "author": "Kiija Gargarello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kiija/chatApp/issues"
+  },
+  "homepage": "https://github.com/Kiija/chatApp#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
