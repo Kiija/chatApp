@@ -21,7 +21,7 @@ io.on('connection', socket => {
   //console.log('a user has connected!')
   //
   //Below is the notifcaiont attempt
-  console.log("runing time");
+  console.log("running time");
  sendTimeMessage(socket);
 
  function sendTimeMessage(socket){
@@ -43,6 +43,7 @@ io.on('connection', socket => {
    socket.on('chat message', msg => {
      io.emit('chat message', { for : 'everyone', message : msg});
      socket.broadcast.emit('chat message', msg); //added this to send the message to all the users who are accessing the same site(localhost)
+     sendTimeMessage(socket);
  });
 
 
