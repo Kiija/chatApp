@@ -19,9 +19,7 @@ io.attach(server);
 
 io.on('connection', socket => {
   //console.log('a user has connected!')
-  //
-  //Below is the notifcation attempt
-  console.log("runing time");
+  
   sendTimeMessage(socket);
 
  function sendTimeMessage(socket) {
@@ -50,6 +48,13 @@ io.on('connection', socket => {
     io.emit('disconnect message', `A user has left the chat!`);
   });
 });
+
+
+
+
+
+
+
 ///////THIS WAS ME TRYING TO MAKE THE NICKNAME THING FOR THE DIFFERENT ROOMS....didn't work so i took it out
 // io.on('connection', function(socket) {
 //     socket.on('send-nickname', function(username) {
