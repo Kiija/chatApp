@@ -23,10 +23,11 @@ io.on('connection', socket => {
   sendTimeMessage(socket);
 
  function sendTimeMessage(socket) {
-  console.log("in time");
-  var now = new Date().getTime();
+  var now = new Date();
 
-  socket.emit('notification', {'message': now});
+  var timestamp = now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+  socket.emit('notification', {'message': timestamp});
 
   setTimeout(function() {
     socket.emit('notification', {'message': "after 5s"});
