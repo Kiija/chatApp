@@ -20,30 +20,28 @@ io.attach(server);
 io.on('connection', socket => {
   //console.log('a user has connected!')
   //
-  //Below is the notifcaiont attempt
+  //Below is the notifcation attempt
   console.log("runing time");
- sendTimeMessage(socket);
+  sendTimeMessage(socket);
 
- function sendTimeMessage(socket){
+ function sendTimeMessage(socket) {
   console.log("in time");
-  var now= new Date().getTime();
+  var now = new Date().getTime();
+
   socket.emit('notification', {'message': now});
+
   setTimeout(function() {
     socket.emit('notification', {'message': "after 5s"});
   },5000);
  }
 
- function handler (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end("<html><script src=\"/socket.io/socket.io.js\"></script> <!--socket.io--><script>io.connect().on('notification', function (data) {console.log(data)});</script></html>");
- }
+  io.emit('chat message', { for : 'everyone', message : `A new user has entered the chat`});
 
-   io.emit('chat message', { for : 'everyone', message : `A new user has entered the chat`});
-
-   socket.on('chat message', msg => {
+  socket.on('chat message', msg => {
      io.emit('chat message', { for : 'everyone', message : msg});
-     socket.broadcast.emit('chat message', msg); //added this to send the message to all the users who are accessing the same site(localhost)
- });
+     //socket.broadcast.emit('chat message', msg); //added this to send the message to all the users who are accessing the same site(localhost)
+     sendTimeMessage(socket);
+  });
 
 
   socket.on('disconnect', () => {
