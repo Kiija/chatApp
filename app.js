@@ -22,11 +22,11 @@ io.on('connection', socket => {
   //
   //Below is the notifcaiont attempt
   console.log("running time");
- sendTimeMessage(socket);
+  sendTimeMessage(socket);
 
  function sendTimeMessage(socket){
   console.log("in time");
-  var now= new Date().getTime();
+  var now = new Date().getTime();
   socket.emit('notification', {'message': now});
   setTimeout(function() {
     socket.emit('notification', {'message': "after 5s"});
@@ -42,9 +42,8 @@ io.on('connection', socket => {
 
    socket.on('chat message', msg => {
      io.emit('chat message', { for : 'everyone', message : msg});
-     socket.broadcast.emit('chat message', msg); //added this to send the message to all the users who are accessing the same site(localhost)
      sendTimeMessage(socket);
- });
+});
 
 
   socket.on('disconnect', () => {
@@ -53,6 +52,13 @@ io.on('connection', socket => {
     io.emit('disconnect message', `A user has left the chat!`);
   });
 });
+
+
+
+
+
+
+
 ///////THIS WAS ME TRYING TO MAKE THE NICKNAME THING FOR THE DIFFERENT ROOMS....didn't work so i took it out
 // io.on('connection', function(socket) {
 //     socket.on('send-nickname', function(username) {
