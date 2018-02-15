@@ -36,7 +36,7 @@ let messageList = document.querySelector('ul'),
     }
 
     function addNotificationMessage(msg) {
-      messageList.innerHTML += `<li class="msgTime">Message sent at ${msg.message}</li>`;
+      messageList.innerHTML += `<li>Message sent at ${msg.message}</li>`;
     }
 
     nameInput.addEventListener('change', setNickname, false);
