@@ -19,8 +19,8 @@ io.attach(server);
 
 io.on('connection', socket => {
   //console.log('a user has connected!')
-  
-  sendTimeMessage(socket);
+
+  //sendTimeMessage(socket);
 
  function sendTimeMessage(socket) {
   var now = new Date();
@@ -29,9 +29,6 @@ io.on('connection', socket => {
 
   socket.emit('notification', {'message': timestamp});
 
-  setTimeout(function() {
-    socket.emit('notification', {'message': "after 5s"});
-  },5000);
  }
 
   io.emit('chat message', { for : 'everyone', message : `A new user has entered the chat`});

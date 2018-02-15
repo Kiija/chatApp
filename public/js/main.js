@@ -36,15 +36,13 @@ let messageList = document.querySelector('ul'),
     }
 
     function addNotificationMessage(msg) {
-      messageList.innerHTML += `<li>Message sent ${msg.message}</li>`;
+      messageList.innerHTML += `<li class="msgTime">Message sent at ${msg.message}</li>`;
     }
 
     nameInput.addEventListener('change', setNickname, false);
     chatForm.addEventListener('submit', handleSendMessage, false);
     socket.addEventListener('chat message', appendMessage, false);
     socket.addEventListener('disconnect message', appenedDiscMessage, false);
-    socket.addEventListener('notification', addNotificationMessage, false);
-
     socket.addEventListener('notification', addNotificationMessage, false);
 
 })();
