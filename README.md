@@ -11,7 +11,7 @@
 * A timestamp will also be sent so that users can keep track of their conversation and when people said what.
 
 ### Functionality ###
-* This applications uses socket.io, node.js, express, JSON, and grunt.
+* This applications uses socket.io, NPM, node.js, express, JSON, and grunt.
 
 ### Who do I talk to? ###
 
